@@ -1,0 +1,9 @@
+.footer {
+    & .social {
+        &-link {
+            & a {
+                --width: 57px;
+            }
+        }
+    }
+}

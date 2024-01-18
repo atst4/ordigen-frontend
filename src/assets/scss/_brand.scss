@@ -1,0 +1,36 @@
+.brand {
+    // margin-top: -30px;
+    &-border {
+        --main-height: 118px;
+        background: $mainBg;
+        border-radius: 20px;
+        padding: 2px;
+        position: relative;
+        z-index: 2;
+        bottom: calc(var(--main-height) / 2);
+    }
+    &-inner {
+        background-color: $body-bg;
+        padding: 34px 50px;
+        border-radius: 20px;
+        & p:not(.brand-logo p) {
+            color: $primary;
+            @include font-22;
+        }
+    }
+    &-logos {
+        padding-left: 10px;
+    }
+    &-logo {
+        text-align: center;
+        flex: 0 0 auto;
+        width: calc(100% / 12 * 2);
+        &:not(:last-child) {
+            border-right: 1px solid rgba($color: $white, $alpha: .10);
+            padding: 0 40px;
+        }
+        &:last-child {
+            padding-left: 40px;
+        }
+    }
+}

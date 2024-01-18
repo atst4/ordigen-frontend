@@ -1,0 +1,174 @@
+@mixin transition {
+    transition: all .3s ease-in-out;
+}
+
+@mixin hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+@mixin show {
+    opacity: 1;
+    visibility: visible;
+}
+
+@mixin img($property) {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    & img {
+        width: 100%;
+        height: 100%;
+        object-fit: $property;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+@mixin position_middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin middle_clear {
+    position: unset;
+    top: 0%;
+    left: 0%;
+    transform: translate(0, 0);
+}
+
+@mixin position_left {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@mixin position_right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+@mixin flex {
+    display: flex;
+    align-items: center;
+}
+
+@mixin font-70 {
+    font-size: 70px;
+    line-height: (106px/70px);
+    @include xxl {
+        font-size: 60px;
+    }
+    @include xl {
+        font-size: 60px;
+    }
+    @include lg {
+        font-size: 40px;
+    }
+    @include md {
+        font-size: 36px;
+    }
+    @include sm {
+        font-size: 30px;
+    }
+    @include xsm {
+        font-size: 26px;
+    }
+}
+
+@mixin font-40 {
+    font-size: 40px;
+    line-height: (60px/40px);
+    @include xl {
+        font-size: 32px;
+    }
+    @include lg {
+        font-size: 28px;
+    }
+    @include md {
+        font-size: 26px;
+    }
+    @include sm {
+        font-size: 22px;
+    }
+}
+
+@mixin font-32 {
+    font-size: 32px;
+    line-height: normal;
+}
+
+@mixin font-36 {
+    font-size: 36px;
+    line-height: (55px/36px);
+    @include lg {
+        font-size: 32px;
+    }
+    @include md {
+        font-size: 28px;
+    }
+    @include sm {
+        font-size: 24px;
+    }
+}
+
+@mixin font-20 {
+    font-size: 20px;
+    line-height: calc(30px/32px);
+    @include lg {
+        font-size: 18px;
+    }
+    @include md {
+        font-size: 18px;
+    }
+    @include sm {
+        font-size: 16px;
+    }
+}
+
+@mixin font-22 {
+    font-size: 22px;
+    line-height: calc(35px/22px);
+}
+
+@mixin font-18 {
+    font-size: 18px;
+    line-height: calc(28px/18px);
+    @include md {
+        font-size: 16px;
+    }
+}
+
+// for rtl support
+@mixin rtlPM {
+    html[dir=rtl] & {
+        @content;
+    }
+}
+
+@mixin rtl($property, $left, $right) {
+    #{$property}: $left;
+    html[dir=rtl] & {
+        #{$property}: $right;
+    }
+}
+
+@mixin isRtl($property, $value, $property2, $value2) {
+    html[dir=rtl] & {
+        #{$property}: $value;
+        #{$property2}: $value2;
+    }
+}
+
+@mixin text_ellipsis($count) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: $count;
+    -webkit-line-clamp: $count;
+    -webkit-box-orient: vertical;
+}

@@ -1,0 +1,46 @@
+/* Header & footer CSS */
+
+.heading,
+.footer {
+    --padding: 40px;
+    padding: var(--padding) 0;
+    @include lg {
+        --padding: 30px;
+    }
+    &-inner {
+        background-color: #0C0F17 !important;
+        color: $white;
+        --padding-y: 32px;
+        --padding-x: 40px;
+        padding: var(--padding-y) var(--padding-x);
+        border-radius: 20px;
+        @include lg {
+            --padding-y: 24px;
+            --padding-x: 30px;
+        }
+    }
+}
+
+.heading {
+    &-link {
+        @include font-32;
+        font-family: "PP Gosha Sans", sans-serif;
+        color: #FD311B !important;
+        margin-top: -5px;
+        &:hover {
+            color: $primary !important;
+        }
+    }
+    & .navbar {
+        &-toggler {
+            background-color: $primary;
+            padding: 6px 8px;
+            &-icon {
+                filter: brightness(0) invert(1);
+            }
+        }
+    }
+}
+
+
+/* Header CSS */

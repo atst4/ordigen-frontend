@@ -1,0 +1,75 @@
+.banner {
+    --pt: 283px;
+    --pb: 140px;
+    @include xl {
+        --pt: 220px;
+        --pb: 120px;
+    }
+    @include lg {
+        --pt: 190px;
+        --pb: 100px
+    }
+    @include lg {
+        --pt: 160px;
+        --pb: 80px
+    }
+    padding-top: var(--pt);
+    padding-bottom: var(--pb);
+    position: relative;
+    z-index: 1;
+    background-image: url(../img/banner-bg.png);
+    background-size: 100% 100%;
+    background-position: top right;
+    &-content {
+        & h1 {
+            font-size: 75px;
+            line-height: calc(82px/75px);
+            padding-bottom: 30px;
+            color: $secondary;
+            @include xl {
+                font-size: 70px;
+            }
+            @include lg {
+                font-size: 55px;
+                padding-bottom: 15px;
+            }
+            @include md {
+                font-size: 48px;
+            }
+            & span {
+                color: transparent;
+                background: $mainBg;
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+        & p {
+            padding-bottom: 50px;
+            padding-right: 240px;
+            @include xxl {
+                padding-right: 170px;
+            }
+            @include lg {
+                padding-bottom: 30px;
+            }
+            @include md {
+                padding-right: 30px;
+            }
+        }
+    }
+    &-btn {
+        margin-bottom: 30px;
+        & button {
+            &.bg-transparent {
+                color: $primary;
+                border: 1px solid;
+                border-image-slice: 1;
+                border-image-source: linear-gradient(to right, $primary, $secondary);
+            }
+        }
+    }
+    & span:not(h1 span) {
+        @include font-18;
+    }
+}
