@@ -1,9 +1,7 @@
 @import '../fonts/pp/fonts';
 @import url('https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,700&display=swap');
 body {
-    font-size: 16px;
     font-weight: 400;
-    line-height: calc(26px/16px);
     color: $text;
     font-family: 'Kodchasan', sans-serif;
     background: $body-bg;
@@ -22,6 +20,7 @@ h6 {
 
 p {
     margin: 0;
+    @include font-18;
 }
 
 img {
@@ -37,7 +36,7 @@ ol {
 }
 
 a {
-    text-decoration: none !important;
+    text-decoration: none;
     @include transition;
 }
 
@@ -76,38 +75,30 @@ input[type=number] {
 }
 
 .primary-btn {
-    padding: 18px 40px;
-    background: $mainBg;
+    padding: 16px 40px;
+    background: $secondary;
+    background: $btn-bg;
     border-radius: 10px;
     color: $white;
     @include font-20;
+    font-family: "PP Gosha Sans", sans-serif;
+    &:hover {
+        --size: 0%;
+    }
 }
 
-// social links
-.social {
-    &-link {
-        & a {
-            @include font-20;
-            color: $white;
-            font-family: "PP Gosha Sans", sans-serif;
-            font-weight: 400;
-            &:hover {
-                color: $primary;
-            }
-        }
-        & a:not(.not-icon) {
-            --width: 48px;
-            width: var(--width);
-            height: var(--width);
-            border-radius: 100%;
-            overflow: hidden;
-            flex: 0 0 auto;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='49' height='49' viewBox='0 0 49 49' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg filter='url(%23filter0_b_1_176)'%3e%3ccircle cx='24.1892' cy='24.1892' r='24.1892' fill='%23F95C23' fill-opacity='0.05'/%3e%3ccircle cx='24.1892' cy='24.1892' r='23.769' stroke='url(%23paint0_linear_1_176)' stroke-opacity='0.6' stroke-width='0.840376'/%3e%3c/g%3e%3cdefs%3e%3cfilter id='filter0_b_1_176' x='-20.169' y='-20.169' width='88.7164' height='88.7164' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3e%3cfeFlood flood-opacity='0' result='BackgroundImageFix'/%3e%3cfeGaussianBlur in='BackgroundImageFix' stdDeviation='10.0845'/%3e%3cfeComposite in2='SourceAlpha' operator='in' result='effect1_backgroundBlur_1_176'/%3e%3cfeBlend mode='normal' in='SourceGraphic' in2='effect1_backgroundBlur_1_176' result='shape'/%3e%3c/filter%3e%3clinearGradient id='paint0_linear_1_176' x1='13.3506' y1='2.54623' x2='32.0961' y2='44.8769' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='%23F95C23'/%3e%3cstop offset='1' stop-color='%230F1520'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e ");
-            background-repeat: no-repeat;
-            background-size: cover;
-            &:hover {
-                --bs-text-opacity: .5;
-            }
-        }
+.show {
+    &::after {
+        transform: rotate(180deg);
+    }
+}
+
+.section-padding {
+    padding: 160px 0;
+    @include xl {
+        padding: 120px 0;
+    }
+    @include md {
+        padding: 80px 0;
     }
 }

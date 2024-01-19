@@ -1,36 +1,65 @@
 .brand {
-    // margin-top: -30px;
+    position: relative;
+    z-index: 2;
+    bottom: calc(var(--main-height) / 2);
+    --main-height: 118px;
+    margin-bottom: -60px;
     &-border {
-        --main-height: 118px;
         background: $mainBg;
         border-radius: 20px;
         padding: 2px;
-        position: relative;
-        z-index: 2;
-        bottom: calc(var(--main-height) / 2);
     }
     &-inner {
         background-color: $body-bg;
         padding: 34px 50px;
         border-radius: 20px;
-        & p:not(.brand-logo p) {
+        @include xl {
+            padding: 32px 30px;
+        }
+        @include md {
+            padding: 32px 20px;
+            flex-wrap: wrap;
+        }
+        & p {
             color: $primary;
             @include font-22;
+            width: max-content;
+            flex: 0 0 auto;
         }
     }
     &-logos {
         padding-left: 10px;
+        @include md {
+            padding-top: 16px;
+        }
     }
     &-logo {
         text-align: center;
         flex: 0 0 auto;
         width: calc(100% / 12 * 2);
+        @include md {
+            width: calc(100% / 12 * 4);
+        }
         &:not(:last-child) {
             border-right: 1px solid rgba($color: $white, $alpha: .10);
             padding: 0 40px;
+            @include xxl {
+                padding: 0px 24px;
+            }
+            @include xl {
+                padding: 0 20px;
+            }
+            @include md {
+                padding: 0 10px;
+                border: none;
+            }
         }
         &:last-child {
             padding-left: 40px;
+            @include xl {
+                padding: 0 19px;
+            }
+            @include md {}
         }
     }
 }

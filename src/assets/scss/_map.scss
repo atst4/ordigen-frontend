@@ -1,0 +1,71 @@
+$margin:16.6666%;
+$item:4;
+.road {
+    & .section-title {
+        margin-bottom: 100px;
+        @include sm {
+            margin-bottom: 80px;
+        }
+    }
+    &_item {
+        max-width: 540px;
+        position: relative;
+        z-index: 1;
+        &:not(:last-child) {
+            margin-bottom: 70px;
+        }
+        @for $i from 1 through $item {
+            &:nth-child(#{$i + 1}) {
+                margin-left: calc($margin * $i);
+            }
+        }
+    }
+    &_icon {
+        --icon: 77px;
+        width: var(--icon);
+        height: var(--icon);
+        background-image: url("data:image/svg+xml;charset=UTF-8, %3csvg width='77' height='77' viewBox='0 0 77 77' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg filter='url(%23filter0_b_1_1782)'%3e%3ccircle cx='38.5' cy='38.5' r='38.5' fill='%23DBE3FF' fill-opacity='0.03'/%3e%3ccircle cx='38.5' cy='38.5' r='38' stroke='url(%23paint0_linear_1_1782)'/%3e%3c/g%3e%3cdefs%3e%3cfilter id='filter0_b_1_1782' x='-14.2154' y='-14.2154' width='105.431' height='105.431' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3e%3cfeFlood flood-opacity='0' result='BackgroundImageFix'/%3e%3cfeGaussianBlur in='BackgroundImageFix' stdDeviation='7.10769'/%3e%3cfeComposite in2='SourceAlpha' operator='in' result='effect1_backgroundBlur_1_1782'/%3e%3cfeBlend mode='normal' in='SourceGraphic' in2='effect1_backgroundBlur_1_1782' result='shape'/%3e%3c/filter%3e%3clinearGradient id='paint0_linear_1_1782' x1='-3.61261e-07' y1='39.6666' x2='77.0004' y2='39.6754' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='%23EE2C1B'/%3e%3cstop offset='1' stop-color='%23F36E23'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e ");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        backdrop-filter: blur(7.107691764831543px);
+        position: absolute;
+        left: calc(var(--icon) / 2 * -1);
+        top: calc(var(--icon) / 2 * -1);
+        z-index: 2;
+        font-family: "PP Gosha Sans", sans-serif;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 150%;
+        @include lg {
+            font-size: 26px;
+        }
+        @include md {
+            font-size: 24px;
+        }
+        @include sm {
+            font-size: 20px;
+        }
+    }
+    &_inner {
+        border-radius: 20px;
+        overflow: hidden;
+        padding: 1px;
+        background-image: linear-gradient(158deg, #0f1520 -184.64%, #0f1520 98.93%), $mainBg;
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        &_wrap {
+            --padding-y: 40px;
+            --padding-x: 60px;
+            padding: var(--padding-y) var(--padding-x);
+            & h4 {
+                font-size: 26px;
+                line-height: 1.5;
+            }
+            & p {
+                font-size: 18px;
+                line-height: 160%;
+            }
+        }
+    }
+}

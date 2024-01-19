@@ -4,5 +4,7 @@ $body-bg:#0F1520;
 $primary: #EE2C1B;
 $secondary: #F36E23;
 $text:rgba(255, 255, 255, 0.8);
-$border:gray;
+$border: rgba(238, 44, 27, 0.10);
 $mainBg:var(--liner, linear-gradient(90deg, $primary 0.01%, $secondary 99.99%));
+$btn-bg: var(--btn-bg, linear-gradient(90deg, $secondary 0%, $primary 50%, $secondary 100%) var(--size, 100%) / 200%);
+$service-card:#151B27;

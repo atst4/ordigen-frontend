@@ -1,0 +1,128 @@
+.service {
+    --item-margin: 120px;
+    @include md {
+        --item-margin: 90px;
+    }
+    @include sm {
+        --item-margin: 90px;
+    }
+    &-row {
+        margin-bottom: calc(var(--item-margin) * -1);
+    }
+    & .section-title {
+        margin-bottom: 130px;
+        @include sm {
+            margin-bottom: 100px;
+        }
+    }
+    &-card {
+        padding-left: 73px;
+        margin-bottom: var(--item-margin);
+        min-height: 384px;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        @include xxls {
+            padding-left: 40px;
+        }
+        @include xl {
+            padding-left: 35px;
+        }
+        @include md {
+            min-height: 300px;
+        }
+        &-icon {
+            --size: 130px;
+            width: var(--size);
+            height: var(--size);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-radius: 50%;
+            position: absolute;
+            z-index: 3;
+            top: calc(var(--size) / 2 * -1);
+            left: calc(var(--size) / 2 * -1);
+            backdrop-filter: blur(12px);
+            background: transparent;
+            padding: 3px;
+            @include xxls {
+                --size: 100px;
+                top: -61px;
+                left: -11px;
+            }
+            @include xl {
+                --size: 120px;
+                left: -14px;
+            }
+            @include md {
+                --size: 110px;
+            }
+            @include sm {
+                --size: 100px;
+                left: -6px !important;
+                top: -17%;
+            }
+            @include ssm {
+                --size: 90px;
+            }
+            & svg {
+                @include xxls {
+                    width: 40px;
+                    height: auto;
+                }
+                @include md {
+                    width: 35px;
+                }
+                @include ssm {
+                    width: 30px;
+                }
+            }
+        }
+        &-inner {
+            overflow: hidden;
+            background: $service-card;
+            border-radius: 18px;
+            position: relative;
+            z-index: 1;
+            padding: 4px;
+            transition: all 2s ease;
+            &:hover {
+                background-image: linear-gradient(158deg, #F03D1E -184.64%, #0F1520 98.93%), $mainBg;
+                background-origin: border-box;
+                background-clip: content-box, border-box;
+                & .service-card-icon {
+                    // background-image: linear-gradient(#0f1520, #0f1520), $mainBg, ;
+                    // background-origin: border-box;
+                    // background-clip: content-box, border-box;
+                    border: 3px solid $secondary;
+                }
+            }
+            & h3 {
+                padding-left: 71px;
+                margin-bottom: 30px;
+                @include font-32;
+                @include xxls {
+                    padding-left: 50px;
+                }
+                @include xl {
+                    padding-left: 60px;
+                }
+                @include md {
+                    margin-bottom: 18px;
+                    font-size: 28px;
+                }
+                @include sm {
+                    font-size: 24px;
+                }
+                @include ssm {
+                    font-size: 22px;
+                }
+            }
+        }
+        &-wrapper {
+            padding: 37px;
+            @include xxl {
+                padding: 23px;
+            }
+        }
+    }
+}

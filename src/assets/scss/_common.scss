@@ -1,0 +1,14 @@
+.section-title {
+    margin-bottom: 60px;
+    @include sm {
+        margin-bottom: 44px;
+    }
+    & h2 {
+        @include font-60;
+        margin-bottom: 0;
+        background: $mainBg;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}

@@ -13,7 +13,7 @@ export default class Banner extends Component {
                         <p>Explore Ordigen, the cross-chain swap protocol allowing ETH degens to seamlessly inject liquidity into the booming BRC-20 ecosystem. Dive into decentralized growth effortlessly.</p>
                         <div className="banner-btn d-flex align-items-center gap-3 gap-lg-4">
                             <button className="primary-btn">Documents</button>
-                            <button className="primary-btn bg-transparent">Launch Swap</button>
+                            <button className="primary-btn bg-transparent"><span className='d-block'>Launch Swap</span></button>
                         </div>
                         <span className="d-block">CA: 0x000000000000000000000000000000</span>
                     </div>

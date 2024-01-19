@@ -1,26 +1,36 @@
 .banner {
     --pt: 283px;
     --pb: 140px;
+    padding-top: var(--pt);
+    padding-bottom: var(--pb);
+    position: relative;
+    z-index: 1;
+    background-image: url(../img/banner-bg.png);
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: 94% 100%;
     @include xl {
         --pt: 220px;
         --pb: 120px;
     }
     @include lg {
         --pt: 190px;
-        --pb: 100px
     }
     @include lg {
         --pt: 160px;
-        --pb: 80px
+        background-position: 55px 100%;
     }
-    padding-top: var(--pt);
-    padding-bottom: var(--pb);
-    position: relative;
-    z-index: 1;
-    background-image: url(../img/banner-bg.png);
-    background-size: 100% 100%;
-    background-position: top right;
+    @include md {
+        background-position: 125px 100%;
+        --pt: 140px;
+    }
+    @include sm {
+        background-image: none;
+    }
     &-content {
+        @include sm {
+            text-align: center;
+        }
         & h1 {
             font-size: 75px;
             line-height: calc(82px/75px);
@@ -35,6 +45,11 @@
             }
             @include md {
                 font-size: 48px;
+                padding-bottom: 20px;
+            }
+            @include ssm {
+                font-size: 36px;
+                margin-bottom: 0;
             }
             & span {
                 color: transparent;
@@ -47,6 +62,7 @@
         & p {
             padding-bottom: 50px;
             padding-right: 240px;
+            @include font-20;
             @include xxl {
                 padding-right: 170px;
             }
@@ -54,18 +70,30 @@
                 padding-bottom: 30px;
             }
             @include md {
-                padding-right: 30px;
+                padding-right: 0px;
             }
         }
     }
     &-btn {
         margin-bottom: 30px;
-        & button {
-            &.bg-transparent {
-                color: $primary;
-                border: 1px solid;
-                border-image-slice: 1;
-                border-image-source: linear-gradient(to right, $primary, $secondary);
+        & .bg-transparent {
+            color: $primary;
+            padding: 1px;
+            border-radius: 10px;
+            background-image: linear-gradient(158deg, #0f1520 -184.64%, #0f1520 98.93%), $mainBg;
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            transition: none;
+            &:hover {
+                color: $white;
+                background-image: $mainBg;
+                --size: 0;
+            }
+            & span {
+                padding: 16px 40px;
+                @include ssm {
+                    padding: 18px 25px;
+                }
             }
         }
     }
