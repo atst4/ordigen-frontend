@@ -36,6 +36,15 @@ export default class FAQ extends Component {
         des: `BRC-20 is a standard for creating smart contracts and tokens on the Bitcoin blockchain. Similar to ERC-20 on Ethereum, it allows developers to build various DeFi applications and digital assets on Bitcoin, opening up the network to the vibrant world of decentralized finance.`
       },
     ];
+    const handleClick = ((e) => {
+      let targetElement = e.target.closest('.accordion-item');
+      let activeElement = document.querySelectorAll('.accordion-item');
+      activeElement.forEach((e) => {
+        e.classList.remove('bordered')
+      })
+      targetElement.classList.toggle('bordered');
+      
+    });
     return (
       <div className="section-padding faq pb-0">
         <Container>
@@ -46,7 +55,7 @@ export default class FAQ extends Component {
               </div>
               <Accordion defaultActiveKey={faq.length != 0 ? 1 : 0}>
                 {faq.map((item, index)=> (                  
-                  <Accordion.Item eventKey={item.id} key={index} data-count={`${item.length<9?'':0}${item.id}`}>
+                  <Accordion.Item eventKey={item.id} key={index} data-count={`${item.length<9?'':0}${item.id}`} onClick={handleClick} className={`${index == 0 ? 'bordered' : ''}`}>
                     <div className="accordion-wrap">
                       <div className="accordion-border">                            
                         <Accordion.Header>

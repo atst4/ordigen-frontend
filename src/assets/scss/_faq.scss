@@ -18,6 +18,13 @@
         z-index: 1;
         border: 0px;
         border-radius: 0px !important;
+        &.bordered {
+            border: 1px solid transparent;
+            background: rgba(84, 82, 82, 0.10);
+            backdrop-filter: blur(52px);
+            border-image-slice: 1;
+            border-image-source: $mainBg;
+        }
         &::after {
             content: attr(data-count);
             position: absolute;
