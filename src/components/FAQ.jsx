@@ -55,10 +55,10 @@ export default class FAQ extends Component {
               </div>
               <Accordion defaultActiveKey={faq.length != 0 ? 1 : 0}>
                 {faq.map((item, index)=> (                  
-                  <Accordion.Item eventKey={item.id} key={index} data-count={`${item.length<9?'':0}${item.id}`} onClick={handleClick} className={`${index == 0 ? 'bordered' : ''}`}>
+                  <Accordion.Item eventKey={item.id} key={index} data-count={`${item.length<9?'':0}${item.id}`} className={`${index == 0 ? 'bordered' : ''}`}>
                     <div className="accordion-wrap">
                       <div className="accordion-border">                            
-                        <Accordion.Header>
+                        <Accordion.Header onClick={handleClick}>
                           {item.title}
                         </Accordion.Header>
                         <Accordion.Body> {item.des} </Accordion.Body>                    
