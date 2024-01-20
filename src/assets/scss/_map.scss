@@ -1,10 +1,39 @@
 $margin:16.6666%;
 $item:4;
 .road {
+    position: relative;
+    z-index: 1;
+    background-image: url(../img/road-map-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    &::before {
+        --before-width: 798px;
+        --left: 160px;
+        content: '';
+        position: absolute;
+        z-index: -2;
+        top: -11%;
+        left: calc(100% - var(--left));
+        width: var(--before-width);
+        height: var(--before-width);
+        border-radius: 100%;
+        opacity: 0.6;
+        background: $secondary;
+        filter: blur(150px);
+        @include xl {
+            --before-width: 500px;
+        }
+        @include md {
+            right: -45%;
+        }
+        @include sm {
+            --before-width: 160px;
+        }
+    }
     & .section-title {
         margin-bottom: 100px;
         @include sm {
-            margin-bottom: 80px;
+            margin-bottom: 70px;
         }
     }
     &_item {
@@ -12,8 +41,22 @@ $item:4;
         position: relative;
         z-index: 1;
         --margin-top: 100px;
+        &:first-child {
+            @include md {
+                margin-left: 24px;
+            }
+        }
+        @include xl {
+            max-width: 450px;
+        }
+        @include sm {
+            margin-left: 30px !important;
+        }
         &:not(:last-child) {
             margin-bottom: 70px;
+            @include sm {
+                margin-bottom: 50px;
+            }
             &::before {
                 content: url("data:image/svg+xml;charset=UTF-8,%3csvg width='130' height='184' viewBox='0 0 130 184' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 1H109C120.046 1 129 9.9543 129 21V184' stroke='%23F36F24'/%3e%3c/svg%3e ");
                 position: absolute;
@@ -21,11 +64,20 @@ $item:4;
                 transform: translateY(-50%);
                 z-index: -1;
                 margin-top: var(--margin-top);
+                @include md {
+                    display: none;
+                }
             }
         }
         &:nth-child(odd) {
             &::before {
                 left: 100%;
+                @include lgs {
+                    left: calc(100% - 90px);
+                }
+                @include md {
+                    display: none;
+                }
             }
         }
         &:nth-child(even):not(:last-child) {
@@ -33,11 +85,23 @@ $item:4;
                 content: url("data:image/svg+xml;charset=UTF-8,%3csvg width='191' height='198' viewBox='0 0 191 198' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M191 197H21C9.9543 197 0.999994 188.046 0.999994 177V3.09944e-06' stroke='url(%23paint0_linear_1_1812)'/%3e%3cdefs%3e%3clinearGradient id='paint0_linear_1_1812' x1='3.06567' y1='-0.966425' x2='165.175' y2='205.237' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='%23EE2C1B'/%3e%3cstop offset='1' stop-color='%23691F1F'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e ");
                 top: 100%;
                 left: 100px;
+                @include md {
+                    display: none;
+                }
             }
         }
         @for $i from 1 through $item {
             &:nth-child(#{$i + 1}) {
                 margin-left: calc($margin * $i);
+                @include lg {
+                    margin-left: calc($margin * $i - 65px);
+                }
+                @include md {
+                    margin-left: calc($margin * $i - 40px);
+                }
+                @include sm {
+                    margin-left: 40px;
+                }
             }
         }
     }
@@ -67,6 +131,9 @@ $item:4;
         @include sm {
             font-size: 20px;
         }
+        @include sm {
+            --icon: 56px;
+        }
     }
     &_inner {
         border-radius: 20px;
@@ -79,13 +146,31 @@ $item:4;
             --padding-y: 40px;
             --padding-x: 60px;
             padding: var(--padding-y) var(--padding-x);
+            @include xl {
+                --padding-y: 24px;
+                --padding-x: 36px;
+            }
+            @include ssm {
+                --padding-y: 17px;
+                --padding-x: 30px;
+            }
             & h4 {
                 font-size: 26px;
                 line-height: 1.5;
+                @include lg {
+                    font-size: 24px;
+                    margin-bottom: 15px !important;
+                }
+                @include ssm {
+                    font-size: 20px;
+                }
             }
             & p {
                 font-size: 18px;
                 line-height: 160%;
+                @include md {
+                    font-size: 16px;
+                }
             }
         }
     }

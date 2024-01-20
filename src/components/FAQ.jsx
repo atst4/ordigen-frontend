@@ -37,22 +37,25 @@ export default class FAQ extends Component {
       },
     ];
     return (
-      <div className="section-padding faq">
+      <div className="section-padding faq pb-0">
         <Container>
           <Row className='justify-content-center'>
             <Col xs={12} lg={10}>
               <div className="section-title text-center mb-5">
-                <h2 className='mb-0 pb-3'>Frequently Asked Questions</h2>
+                <h2 className='mb-0 pb-md-3'>Frequently Asked Questions</h2>
               </div>
-              <Accordion defaultActiveKey="0">
+              <Accordion defaultActiveKey={faq.length != 0 ? 1 : 0}>
                 {faq.map((item, index)=> (                  
-                  <Accordion.Item eventKey={index} key={index}>
-                    <Accordion.Header>
-                      <span className="count">{item.id}</span>
-                      <span className="title">{item.title}</span>
-                    </Accordion.Header>
-                    <Accordion.Body> {item.des} </Accordion.Body>
-                  </Accordion.Item>
+                  <Accordion.Item eventKey={item.id} key={index} data-count={`${item.length<9?'':0}${item.id}`}>
+                    <div className="accordion-wrap">
+                      <div className="accordion-border">                            
+                        <Accordion.Header>
+                          {item.title}
+                        </Accordion.Header>
+                        <Accordion.Body> {item.des} </Accordion.Body>                    
+                      </div>
+                    </div>
+                  </Accordion.Item>                  
               ))}
               </Accordion>              
             </Col>

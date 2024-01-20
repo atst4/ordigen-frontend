@@ -16,7 +16,7 @@ export default class Brands extends Component {
             <Row>
                 <Col xs={12}>
                     <div className="brand-border">
-                        <div className="brand-inner d-flex align-items-center flex-wrap">
+                        <div className="brand-inner d-flex align-items-center">
                             <p>Supported Chains :</p>
                             <div className="brand-logos d-flex align-items-center flex-wrap flex-grow-1">
                               {brands.map((brand, index) => (

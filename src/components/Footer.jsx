@@ -41,10 +41,10 @@ export default class Footer extends Component {
         <Container>
           <Row>
             <Col xs={12}>
-              <div className="footer-inner d-flex align-items-center flex-wrap justify-content-between">
+              <div className="footer-inner d-flex align-items-center flex-wrap justify-content-center justify-content-lg-between">
                 <a href="/"><img src={Logo} alt="" /></a>
-                <ul className="social-link d-flex align-items-center gap-3">
-                  <li className=''><a href="mailto:ordigen@gmail.com" className='not-icon'>ordigen@gmail.com</a></li>
+                <ul className="social-link d-flex align-items-center justify-content-center justify-content-md-end gap-3 mt-3 mt-md-4 mt-lg-0 flex-wrap flex-md-nowrap">
+                  <li><a href="mailto:ordigen@gmail.com" className='not-icon'>ordigen@gmail.com</a></li>
                     {social.map((item, index) => (
                       <li className="ms-1" key={index}>
                         <a href='#' className="text-white d-flex align-items-center justify-content-center rounded-pill" dangerouslySetInnerHTML={{__html:      item.icon }}></a>

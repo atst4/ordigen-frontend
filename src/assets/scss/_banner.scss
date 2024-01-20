@@ -9,16 +9,13 @@
     background-position: top right;
     background-repeat: no-repeat;
     background-size: 94% 100%;
-    @include xl {
+    @include xls {
         --pt: 220px;
         --pb: 120px;
     }
-    @include lg {
-        --pt: 190px;
-    }
-    @include lg {
+    @include lgs {
         --pt: 160px;
-        background-position: 55px 100%;
+        background-size: 86% 100%;
     }
     @include md {
         background-position: 125px 100%;
@@ -26,6 +23,7 @@
     }
     @include sm {
         background-image: none;
+        --pb: 120px;
     }
     &-content {
         @include sm {

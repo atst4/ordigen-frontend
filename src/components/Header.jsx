@@ -1,9 +1,9 @@
-import { Component } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, NavLink, Row, Col, Navbar,Nav} from 'react-bootstrap';
 import Logo from '../assets/img/logo.png'
 
-export default class Header extends Component {
-  render() {
+
+const Header = () =>{
     const social = [
       {
         title: 'x',
@@ -36,9 +36,28 @@ export default class Header extends Component {
         `,
       },
     ];
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+      // Function to handle scroll events
+      const handleScroll = () => {
+        // Check the scroll position
+        const isScrolled = window.scrollY > 100;
+  
+        // Update the state based on the scroll position
+        setScrolled(isScrolled);
+      };
+  
+      // Add scroll event listener
+      window.addEventListener('scroll', handleScroll);
+  
+      // Clean up the event listener when the component unmounts
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
     return (
-      
-      <header className="heading position-absolute start-0 top-0 w-100 z-3">
+      <header className={`heading start-0 top-0 w-100 z-3 ${scrolled ? 'position-fixed pt-3' : 'position-absolute'}`}>
         <Container>
           <Row>
             <Col>
@@ -47,7 +66,7 @@ export default class Header extends Component {
                   <img src={Logo} alt="site-logo" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse className="collapse navbar-collapse" id="navbarText">
+                <Navbar.Collapse className='mt-3 mt-lg-0' id="navbarText">
                   <Nav className="ms-auto social-link gap-3">
                     {social.map((item, index) => (
                       <Nav.Item key={index}>
@@ -55,7 +74,7 @@ export default class Header extends Component {
                       </Nav.Item>
                     ))}
                   </Nav>
-                  <NavLink className="heading-link ms-4 fw-normal" to="/login">Dashboard</NavLink>
+                  <NavLink className="heading-link mt-3 mt-md-0 ms-lg-4 fw-normal" to="/login">Dashboard</NavLink>
                 </Navbar.Collapse>
               </Navbar>
             </Col>
@@ -64,5 +83,6 @@ export default class Header extends Component {
       </header>
 
     )
-  }
+
 }
+export default Header;

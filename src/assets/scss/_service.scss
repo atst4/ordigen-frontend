@@ -1,18 +1,27 @@
 .service {
     --item-margin: 120px;
-    @include md {
+    @include xls {
         --item-margin: 90px;
     }
+    @include lgs {
+        --item-margin: 80px;
+    }
+    @include mds {
+        --item-margin: 50px;
+    }
     @include sm {
-        --item-margin: 90px;
+        --item-margin: 60px;
     }
     &-row {
         margin-bottom: calc(var(--item-margin) * -1);
     }
     & .section-title {
         margin-bottom: 130px;
+        @include mds {
+            margin-bottom: 80px;
+        }
         @include sm {
-            margin-bottom: 100px;
+            margin-bottom: 60px;
         }
     }
     &-card {
@@ -25,11 +34,20 @@
         @include xxls {
             padding-left: 40px;
         }
-        @include xl {
+        @include xls {
             padding-left: 35px;
         }
-        @include md {
+        @include lgs {
+            padding-left: 15px;
+            min-height: 330px;
+        }
+        @include mds {
             min-height: 300px;
+            padding-left: 0;
+        }
+        @include sm {
+            padding-left: 20px;
+            min-height: 224px;
         }
         &-icon {
             --size: 130px;
@@ -49,30 +67,31 @@
                 top: -61px;
                 left: -11px;
             }
-            @include xl {
+            @include xls {
                 --size: 120px;
                 left: -14px;
             }
-            @include md {
-                --size: 110px;
+            @include lgs {
+                --size: 90px;
+                left: -24px;
+            }
+            @include mds {
+                --size: 60px;
+                margin-left: 12px;
             }
             @include sm {
-                --size: 100px;
-                left: -6px !important;
-                top: -17%;
-            }
-            @include ssm {
-                --size: 90px;
+                --size: 70px;
+                margin-left: 12px;
             }
             & svg {
                 @include xxls {
                     width: 40px;
                     height: auto;
                 }
-                @include md {
-                    width: 35px;
+                @include mds {
+                    width: 24px;
                 }
-                @include ssm {
+                @include sm {
                     width: 30px;
                 }
             }
@@ -90,9 +109,6 @@
                 background-origin: border-box;
                 background-clip: content-box, border-box;
                 & .service-card-icon {
-                    // background-image: linear-gradient(#0f1520, #0f1520), $mainBg, ;
-                    // background-origin: border-box;
-                    // background-clip: content-box, border-box;
                     border: 3px solid $secondary;
                 }
             }
@@ -103,12 +119,17 @@
                 @include xxls {
                     padding-left: 50px;
                 }
-                @include xl {
+                @include xls {
                     padding-left: 60px;
+                }
+                @include lgs {
+                    padding-left: 40px;
+                    margin-bottom: 20px;
                 }
                 @include md {
                     margin-bottom: 18px;
                     font-size: 28px;
+                    padding-left: 0;
                 }
                 @include sm {
                     font-size: 24px;

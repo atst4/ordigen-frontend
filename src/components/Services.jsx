@@ -75,7 +75,7 @@ export default class About extends Component {
             </Row>
             <Row className="justify-content-center service-row">
               {services.map((service)=>(                
-                  <Col xs={12} md={8} lg={6} xl={5} xxl={4} className="d-flex" key={service.id}>
+                  <Col xs={12} md={6} xxl={4} className="d-flex" key={service.id}>
                       <div className="service-card">
                           <div className="service-card-inner overflow-visible">
                           <div className="service-card-icon d-flex align-items-center justify-content-center" dangerouslySetInnerHTML={{ __html: service.icon}}></div>

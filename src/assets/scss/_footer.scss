@@ -1,8 +1,29 @@
 .footer {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='1920' height='506' viewBox='0 0 1920 506' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg opacity='0.78' filter='url(%23filter0_f_1_35)'%3e%3cellipse cx='960.408' cy='905.5' rx='605.408' ry='411.5' fill='%23DF6519'/%3e%3c/g%3e%3cdefs%3e%3cfilter id='filter0_f_1_35' x='-138.405' y='0.594727' width='2197.63' height='1809.81' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3e%3cfeFlood flood-opacity='0' result='BackgroundImageFix'/%3e%3cfeBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3e%3cfeGaussianBlur stdDeviation='246.703' result='effect1_foregroundBlur_1_35'/%3e%3c/filter%3e%3c/defs%3e%3c/svg%3e ");
+    background-size: 100% 100%;
+    background-position: bottom center;
+    padding-top: 160px;
+    @include xl {
+        padding-top: 120px;
+    }
+    @include md {
+        padding-top: 80px;
+    }
     & .social {
         &-link {
+            & li {
+                &:first-child {
+                    @include sm {
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
+            }
             & a {
                 --width: 57px;
+                @include sm {
+                    --width: 44px;
+                }
             }
         }
     }
