@@ -12,6 +12,9 @@
 
 .accordion {
     border: 1px solid #2b2c3b;
+    &-header {
+        font-weight: 400;
+    }
     &-item {
         background-color: transparent;
         position: relative;

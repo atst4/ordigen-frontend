@@ -9,8 +9,8 @@ export default class Banner extends Component {
             <Row>
                 <Col md={8} xxl={7}>
                     <div className="banner-content">
-                        <h1><span>Unlocking BRC-20:</span> Ordigen&#39;s Liquidity Injection</h1>
-                        <p>Explore Ordigen, the cross-chain swap protocol allowing ETH degens to seamlessly inject liquidity into the booming BRC-20 ecosystem. Dive into decentralized growth effortlessly.</p>
+                        <h1><span>Unlocking BRC-20:</span> OrdiGen&#39;s Liquidity Injection</h1>
+                        <p>Explore OrdiGen, the cross-chain swap protocol allowing ETH degens to seamlessly inject liquidity into the booming BRC-20 ecosystem. Dive into decentralized growth effortlessly.</p>
                         <div className="banner-btn d-flex align-items-center justify-content-center justify-content-md-start gap-3 gap-lg-4">
                             <button className="primary-btn">Documents</button>
                             <button className="primary-btn bg-transparent"><span className='d-block'>Launch Swap</span></button>

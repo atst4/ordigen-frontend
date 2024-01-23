@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import work_img from '../assets/img/work-img.png';
+import work_img from '../assets/img/work-img.svg';
 import { Col, Container, Row } from 'react-bootstrap';
 
 export default class HowItWork extends Component {

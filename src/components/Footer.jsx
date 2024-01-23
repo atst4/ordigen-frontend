@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import Logo from '../assets/img/logo.png'
+import Logo from '../assets/img/logo.svg'
 
 export default class Footer extends Component {
   render() {

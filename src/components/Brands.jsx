@@ -1,11 +1,11 @@
 import { Component } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
-import img_1 from '../assets/img/brands/1.png';
-import img_2 from '../assets/img/brands/2.png';
-import img_3 from '../assets/img/brands/3.png';
-import img_4 from '../assets/img/brands/4.png';
-import img_5 from '../assets/img/brands/5.png';
-import img_6 from '../assets/img/brands/6.png';
+import img_1 from '../assets/img/brands/1.svg';
+import img_2 from '../assets/img/brands/2.svg';
+import img_3 from '../assets/img/brands/3.svg';
+import img_4 from '../assets/img/brands/4.svg';
+import img_5 from '../assets/img/brands/5.svg';
+import img_6 from '../assets/img/brands/6.svg';
 
 export default class Brands extends Component {
   render() {

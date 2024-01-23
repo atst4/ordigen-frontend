@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Container, NavLink, Row, Col, Navbar,Nav} from 'react-bootstrap';
-import Logo from '../assets/img/logo.png'
+import Logo from '../assets/img/logo.svg'
 
 
 const Header = () =>{

@@ -137,6 +137,12 @@
                         &::after {
                             border-top: 0.3em solid $white;
                         }
+                        & img {
+                            --size2: 30px;
+                            width: var(--size2);
+                            height: var(--size2);
+                            flex: 0 0 auto;
+                        }
                     }
                     & img {
                         margin-right: 8px;
@@ -154,6 +160,41 @@
                         border-color: rgba(0, 145, 250, 0.20);
                         background-color: rgba(0, 145, 250, 0.10);
                         margin-bottom: 0;
+                    }
+                    &-menu {
+                        background-color: #1B1920;
+                        border-radius: 0px;
+                        overflow: auto;
+                        height: 100px;
+                        width: 100%;
+                        min-width: max-content;
+                        --bs-dropdown-item-padding-x: 10px;
+                        --bs-dropdown-item-padding-y: 8px;
+                        border-radius: 4px;
+                        &::-webkit-scrollbar {
+                            width: 6px;
+                        }
+                        &::-webkit-scrollbar-track {
+                            background: $white;
+                            border-radius: 100px;
+                        }
+                        &::-webkit-scrollbar-thumb {
+                            background: $secondary;
+                            border-radius: 100px;
+                        }
+                    }
+                    &-item {
+                        color: $text;
+                        font-size: 1rem;
+                        & img {
+                            --size2: 30px;
+                            width: var(--size2);
+                            height: var(--size2);
+                            margin-right: .5rem;
+                        }
+                        &:hover {
+                            background-color: #2B191F;
+                        }
                     }
                 }
                 & .balance {
