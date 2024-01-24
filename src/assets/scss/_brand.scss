@@ -31,41 +31,44 @@
         }
     }
     &-logos {
+        --grid-count: 6;
         padding-left: 10px;
+        grid-template-columns: repeat(var(--grid-count), minmax(0, 1fr));
         @include md {
             padding-left: 0;
             margin-top: 16px;
-            grid-gap: 1rem;
+            grid-row-gap: 1rem;
+            --grid-count: 3;
+            width: 100%;
         }
+        // @include ssm {
+        //     --grid-count: 2;
+        // }
     }
     &-logo {
         text-align: center;
-        flex: 0 0 auto;
-        width: calc(100% / 12 * 2);
-        @include md {
-            text-align: left;
-            width: calc(100% / 12 * 4 - 1rem);
+        & img {
+            width: 127px;
+            @include xls {
+                width: 90px;
+            }
+            @include lgs {
+                width: 80px;
+            }
+            @include sm {
+                width: 90px;
+            }
+            @include ssm {
+                width: 70px;
+            }
         }
         &:not(:last-child) {
             border-right: 1px solid rgba($color: $white, $alpha: .10);
-            padding: 0 40px;
-            @include xxl {
-                padding: 0px 24px;
-            }
-            @include xl {
-                padding: 0 20px;
-            }
-            @include md {
-                padding: 0 10px;
-                border: none;
-            }
         }
-        &:last-child {
-            padding-left: 40px;
-            @include xl {
-                padding: 0 19px;
+        &:nth-child(3n+3) {
+            @include md {
+                border-right-width: 0;
             }
-            @include md {}
         }
     }
 }

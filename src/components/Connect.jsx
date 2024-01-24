@@ -135,7 +135,7 @@ const Connect = () => {
                                 <p className="p2">0x54B2...8F732c</p>
                             </div>
                             <div className="buy-connect-btn">
-                                <a href="#" className="primary-btn ">Connect Wallet</a>
+                                <button className="primary-btn">Connect Wallet</button>
                             </div>
                         </div>
                     </Col>

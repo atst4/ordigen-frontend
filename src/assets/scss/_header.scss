@@ -91,9 +91,9 @@
             color: $white;
             font-family: "PP Gosha Sans", sans-serif;
             font-weight: 400;
-            &:hover {
-                color: $primary;
-            }
+            // &:hover {
+            //     color: $primary;
+            // }
         }
         & a:not(.not-icon) {
             --width: 48px;

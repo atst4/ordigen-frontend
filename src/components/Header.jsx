@@ -39,19 +39,11 @@ const Header = () =>{
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
-      // Function to handle scroll events
       const handleScroll = () => {
-        // Check the scroll position
         const isScrolled = window.scrollY > 100;
-  
-        // Update the state based on the scroll position
         setScrolled(isScrolled);
       };
-  
-      // Add scroll event listener
       window.addEventListener('scroll', handleScroll);
-  
-      // Clean up the event listener when the component unmounts
       return () => {
         window.removeEventListener('scroll', handleScroll);
       };

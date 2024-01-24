@@ -88,9 +88,13 @@
     &-btn {
         margin-bottom: 30px;
         & .primary-btn {
-            min-width: 190px;
+            min-width: 224px;
             @include sm {
-                min-width: 140px;
+                min-width: 181px;
+            }
+            @include ssm {
+                font-size: 14px;
+                min-width: 164px;
             }
         }
         & .bg-transparent {
@@ -107,14 +111,14 @@
                 --size: 0;
             }
             & span {
-                padding: 16px 36px;
-                @include ssm {
-                    padding: 18px 25px;
+                padding: 15px 30px;
+                @include sm {
+                    padding: 15px 20px;
                 }
             }
         }
     }
-    & span:not(h1 span) {
+    & span:not(h1 span):not(.primary-btn span) {
         @include font-18;
     }
 }
