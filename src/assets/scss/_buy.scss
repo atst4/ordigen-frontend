@@ -121,82 +121,6 @@
                 font-family: 'PP Gosha Sans';
             }
             &-right {
-                & .dropdown {
-                    margin-bottom: 16px;
-                    border-radius: 32px;
-                    margin-top: 32px;
-                    border: 1px solid rgba(140, 140, 140, 0.20);
-                    background-color: rgba(140, 140, 140, 0.10);
-                    &-toggle {
-                        padding: 4px;
-                        padding-right: 14px;
-                        border: none;
-                        background-color: transparent !important;
-                        display: flex;
-                        align-items: center;
-                        &::after {
-                            border-top: 0.3em solid $white;
-                        }
-                        & img {
-                            --size2: 30px;
-                            width: var(--size2);
-                            height: var(--size2);
-                            flex: 0 0 auto;
-                        }
-                    }
-                    & img {
-                        margin-right: 8px;
-                        @include sm {
-                            width: 34px;
-                        }
-                    }
-                    & p {
-                        padding-right: 8px;
-                        color: #F1F1F7;
-                    }
-                    &-2 {
-                        margin-top: 0;
-                        border-radius: 32px;
-                        border-color: rgba(0, 145, 250, 0.20);
-                        background-color: rgba(0, 145, 250, 0.10);
-                        margin-bottom: 0;
-                    }
-                    &-menu {
-                        background-color: #1B1920;
-                        border-radius: 0px;
-                        overflow: auto;
-                        height: 100px;
-                        width: 100%;
-                        min-width: max-content;
-                        --bs-dropdown-item-padding-x: 10px;
-                        --bs-dropdown-item-padding-y: 8px;
-                        border-radius: 4px;
-                        &::-webkit-scrollbar {
-                            width: 6px;
-                        }
-                        &::-webkit-scrollbar-track {
-                            background: $white;
-                            border-radius: 100px;
-                        }
-                        &::-webkit-scrollbar-thumb {
-                            background: $secondary;
-                            border-radius: 100px;
-                        }
-                    }
-                    &-item {
-                        color: $text;
-                        font-size: 1rem;
-                        & img {
-                            --size2: 30px;
-                            width: var(--size2);
-                            height: var(--size2);
-                            margin-right: .5rem;
-                        }
-                        &:hover {
-                            background-color: #2B191F;
-                        }
-                    }
-                }
                 & .balance {
                     font-size: 14px;
                     line-height: calc(16px/14px);
@@ -238,6 +162,84 @@
                 border-radius: 1rem;
                 @include ssm {
                     padding: 14px 24px;
+                }
+            }
+        }
+    }
+    &-exchange {
+        padding: 4px;
+        padding-right: 14px;
+        border: none;
+        border-radius: 32px;
+        margin-bottom: 16px;
+        margin-top: 32px;
+        border: 1px solid rgba(140, 140, 140, 0.20) !important;
+        background-color: rgba(140, 140, 140, 0.10) !important;
+        display: flex;
+        align-items: center;
+        &:last-child {
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+        &::after {
+            content: "";
+            display: inline-block;
+            margin-left: 0.255em;
+            vertical-align: 0.255em;
+            border-top: 0.3em solid;
+            border-right: 0.3em solid transparent;
+            border-bottom: 0;
+            border-left: 0.3em solid transparent;
+        }
+        & img {
+            --size2: 30px;
+            width: var(--size2);
+            height: var(--size2);
+            flex: 0 0 auto;
+            margin-right: 8px;
+            @include sm {
+                width: 34px;
+            }
+        }
+        & span {
+            padding-right: 8px;
+            color: #F1F1F7;
+        }
+    }
+    &-modal {
+        --bs-modal-width: 450px;
+        background: rgba(217, 217, 217, 0.01);
+        backdrop-filter: blur(110px);
+        & .modal {
+            &-header {
+                border: none;
+                & .btn-close {
+                    filter: brightness(0) invert(1);
+                }
+            }
+            &-title {
+                font-size: 18px;
+                font-weight: 400;
+                color: $white;
+                margin-bottom: 0;
+            }
+            &-content {
+                border-radius: 16px;
+                border: 1px solid rgba(238, 44, 27, 0.10);
+                background: #1B1820;
+                & .items {
+                    --grid-count: 3;
+                    grid-template-columns: repeat(var(--grid-count), minmax(0, 1fr));
+                    & li {
+                        border-radius: 10px;
+                        padding: 9px 14px;
+                        font-size: 17px;
+                        line-height: calc(20px/17px);
+                        color: $white;
+                        border: 1px solid rgba($color: $secondary, $alpha: .4);
+                        cursor: pointer;
+                        background: linear-gradient(90deg, rgba(238, 44, 27, 0.25) 0.01%, rgba(243, 110, 35, 0.25) 99.99%);
+                    }
                 }
             }
         }

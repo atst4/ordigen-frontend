@@ -12,10 +12,10 @@ export default class Banner extends Component {
                         <h1><span>Unlocking BRC-20:</span> OrdiGen&#39;s Liquidity Injection</h1>
                         <p>Explore OrdiGen, the cross-chain swap protocol allowing ETH degens to seamlessly inject liquidity into the booming BRC-20 ecosystem. Dive into decentralized growth effortlessly.</p>
                         <div className="banner-btn d-flex align-items-center justify-content-center justify-content-md-start gap-3 gap-lg-4">
-                            <button className="primary-btn">Documents</button>
-                            <button className="primary-btn bg-transparent"><span className='d-block'>Cross-Chain Swap</span></button>
+                            <a href='https://ordigens-organization.gitbook.io/ordigen-whitepaper-v1.0/' target='_blank' rel='noreferrer' className="primary-btn text-center">Documents</a>
+                            <button className="primary-btn bg-transparent text-center"><span className='d-block'>Cross-Chain Swap</span></button>
                         </div>
-                        <span className="d-block">CA: 0x000000000000000000000000000000</span>
+                        <span className="d-block">CA: 0xc3cc3076cb304494775b3193ef1aa080ba6bf962</span>
                     </div>
                 </Col>
             </Row>

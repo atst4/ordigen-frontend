@@ -1,28 +1,19 @@
-import { useState } from 'react'
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header'
-import Banner from './components/Banner'
-import Brands from './components/Brands'
-import Connect from './components/Connect'
-import HowItWork from './components/HowItWork'
-import Services from './components/Services'
-import RoadMap from './components/RoadMap'
-import FAQ from './components/FAQ'
+import Home from './pages/home'
 import Footer from './components/Footer'
+import Dashboard from './pages/dashboard';
 
 function App() {
   return (
-    <>
+    <Router>
       <Header />
-      <Banner />
-      <Brands />
-      <Connect />
-      <HowItWork />
-      <Services />
-      <RoadMap />
-      <FAQ />
+        <Routes>
+          <Route path="/" exact Component={Home} />
+          <Route path="/dashboard" Component={Dashboard} />
+        </Routes>
       <Footer />
-    </>
+    </Router>
   )
 }
 
