@@ -1,0 +1,73 @@
+.dashboard {
+    --dash-padding: 264px;
+    --padding-bottom: 100px;
+    padding-top: var(--dash-padding);
+    padding-bottom: var(--padding-bottom);
+    @include lgs {
+        --dash-padding: 204px;
+    }
+    @include mds {
+        --dash-padding: 150px;
+    }
+    @include sm {
+        --dash-padding: 120px;
+        --padding-bottom: 60px;
+    }
+    & .buy-connect {
+        max-width: 100%;
+    }
+    & .accordion {
+        &-item {
+            overflow: hidden;
+            border-radius: 16px;
+            border: 1px solid rgba(238, 44, 27, 0.10);
+            background: linear-gradient(90deg, rgba(238, 44, 27, 0.05) 0.01%, rgba(243, 110, 35, 0.05) 99.99%);
+            backdrop-filter: blur(12px);
+            --bs-accordion-body-padding-x: 28px;
+            --bs-accordion-body-padding-y: var(--bs-accordion-body-padding-x);
+            --bs-accordion-btn-padding-x: var(--bs-accordion-body-padding-x);
+            --bs-accordion-btn-padding-y: 20px;
+            --bs-accordion-btn-icon: url("data:image/svg+xml;charset=UTF-8,%3csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13.4815 19.3691L4.4799 10.0864C3.91822 9.50722 4.25869 8.3999 4.99847 8.3999L23.0016 8.3999C23.7414 8.3999 24.0819 9.50721 23.5202 10.0864L14.5186 19.3691C14.2202 19.6768 13.7799 19.6768 13.4815 19.3691Z' fill='%23F1F1F7'/%3e%3c/svg%3e ");
+            --bs-accordion-btn-active-icon: url("data:image/svg+xml;charset=UTF-8,%3csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13.4815 19.3691L4.4799 10.0864C3.91822 9.50722 4.25869 8.3999 4.99847 8.3999L23.0016 8.3999C23.7414 8.3999 24.0819 9.50721 23.5202 10.0864L14.5186 19.3691C14.2202 19.6768 13.7799 19.6768 13.4815 19.3691Z' fill='%23F1F1F7'/%3e%3c/svg%3e ");
+            @include ssm {
+                --bs-accordion-body-padding-x: 1rem;
+                --bs-accordion-btn-padding-y: 15px;
+            }
+        }
+        &-button {
+            border: 1px solid rgba(238, 44, 27, 0.05);
+            background: linear-gradient(90deg, rgba(238, 44, 27, 0.05) 0.01%, rgba(243, 110, 35, 0.05) 99.99%);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 0 !important;
+            @include ssm {
+                font-size: 14px;
+            }
+        }
+        &-body {
+            & ul {
+                & li {
+                    font-family: "PP Gosha Sans", sans-serif;
+                    font-size: 18px;
+                    font-weight: 400;
+                    line-height: 160%;
+                    color: $body;
+                    @include sm {
+                        font-size: 1rem;
+                    }
+                    @include ssm {
+                        font-size: 14px;
+                    }
+                    &:not(:last-child) {
+                        margin-bottom: 1rem;
+                    }
+                    & .text-gradient {
+                        background: $mainBg;
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -8,135 +8,134 @@
             }
         }
     }
-}
-
-.accordion {
-    border: 1px solid #2b2c3b;
-    &-header {
-        font-weight: 400;
-    }
-    &-item {
-        background-color: transparent;
-        position: relative;
-        z-index: 1;
-        border: 0px;
-        border-radius: 0px !important;
-        &.bordered {
-            border: 1px solid transparent;
-            background: rgba(84, 82, 82, 0.10);
-            backdrop-filter: blur(52px);
-            border-image-slice: 1;
-            border-image-source: $mainBg;
+    .accordion {
+        border: 1px solid #2b2c3b;
+        &-header {
+            font-weight: 400;
         }
-        &::after {
-            content: attr(data-count);
-            position: absolute;
-            left: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 24px;
-            color: $white;
+        &-item {
+            background-color: transparent;
+            position: relative;
+            z-index: 1;
+            border: 0px;
+            border-radius: 0px !important;
+            &.bordered {
+                border: 1px solid transparent;
+                background: rgba(84, 82, 82, 0.10);
+                backdrop-filter: blur(52px);
+                border-image-slice: 1;
+                border-image-source: $mainBg;
+            }
+            &::after {
+                content: attr(data-count);
+                position: absolute;
+                left: 30px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 24px;
+                color: $white;
+                @include md {
+                    font-size: 20px;
+                    left: 18px;
+                }
+                @include sm {
+                    font-size: 18px;
+                    left: 12px;
+                }
+            }
+        }
+        &-wrap {
+            border-bottom: 1px solid #2A2B3A;
+            padding: 0 90px;
             @include md {
+                padding: 0 60px;
+            }
+            @include sm {
+                padding: 0 45px;
+            }
+        }
+        &-border {
+            border-left: 1px solid #2A2B3A;
+            border-right: 1px solid #2A2B3A;
+        }
+        &-body {
+            padding: 0;
+            padding-left: 40px;
+            margin-top: -8px;
+            padding-bottom: 40px;
+            @include md {
+                padding-left: 20px;
+                padding-bottom: 20px;
+                margin-top: 0;
+            }
+        }
+        &-button {
+            position: static;
+            color: $white !important;
+            font-size: 24px;
+            box-shadow: none;
+            background-color: transparent !important;
+            line-height: calc(32px / 24px);
+            box-shadow: 0 0 0 !important;
+            --bs-accordion-inner-border-radius: 0px;
+            --bs-accordion-btn-icon-transform: 0;
+            padding: 40px;
+            @include lg {
+                padding: 30px;
+            }
+            @include md {
+                padding: 20px;
                 font-size: 20px;
-                left: 18px;
             }
             @include sm {
                 font-size: 18px;
-                left: 12px;
+                padding: 15px;
             }
-        }
-    }
-    &-wrap {
-        border-bottom: 1px solid #2A2B3A;
-        padding: 0 90px;
-        @include md {
-            padding: 0 60px;
-        }
-        @include sm {
-            padding: 0 45px;
-        }
-    }
-    &-border {
-        border-left: 1px solid #2A2B3A;
-        border-right: 1px solid #2A2B3A;
-    }
-    &-body {
-        padding: 0;
-        padding-left: 40px;
-        margin-top: -8px;
-        padding-bottom: 40px;
-        @include md {
-            padding-left: 20px;
-            padding-bottom: 20px;
-            margin-top: 0;
-        }
-    }
-    &-button {
-        position: static;
-        color: $white !important;
-        font-size: 24px;
-        box-shadow: none;
-        background-color: transparent !important;
-        line-height: calc(32px / 24px);
-        box-shadow: 0 0 0 !important;
-        --bs-accordion-inner-border-radius: 0px;
-        --bs-accordion-btn-icon-transform: 0;
-        padding: 40px;
-        @include lg {
-            padding: 30px;
-        }
-        @include md {
-            padding: 20px;
-            font-size: 20px;
-        }
-        @include sm {
-            font-size: 18px;
-            padding: 15px;
-        }
-        &:not(.collapsed) {
-            padding-bottom: 30px;
-            @include md {
-                padding-bottom: 20px;
+            &:not(.collapsed) {
+                padding-bottom: 30px;
+                @include md {
+                    padding-bottom: 20px;
+                }
             }
-        }
-        &::after {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%) !important;
-            right: 36px;
-            background-image: url(../img/faq-plus-icon.png) !important;
-            --plus: 20px;
-            width: var(--plus);
-            height: var(--plus);
-            @include mds {
+            &::after {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%) !important;
+                right: 36px;
+                background-image: url(../img/faq-plus-icon.png) !important;
+                --plus: 20px;
+                width: var(--plus);
+                height: var(--plus);
+                @include mds {
+                    background-size: 18px;
+                    right: 20px;
+                }
+                @include sm {
+                    background-size: 16px;
+                    right: 10px;
+                }
+            }
+            &[aria-expanded="true"]::after {
+                background-image: url(../img/faq-minus-icon.png) !important;
+                height: 2px;
                 background-size: 18px;
-                right: 20px;
+                @include sm {
+                    background-size: 16px;
+                }
             }
+            &:focus {
+                outline: 0;
+                box-shadow: none;
+                border: 0px;
+            }
+        }
+        &-body {
+            background-color: transparent;
+            @include font-18;
+            color: rgba($color: $white, $alpha: .70);
             @include sm {
-                background-size: 16px;
-                right: 10px;
+                font-size: 14px;
             }
-        }
-        &[aria-expanded="true"]::after {
-            background-image: url(../img/faq-minus-icon.png) !important;
-            height: 2px;
-            background-size: 18px;
-            @include sm {
-                background-size: 16px;
-            }
-        }
-        &:focus {
-            outline: 0;
-            box-shadow: none;
-            border: 0px;
-        }
-    }
-    &-body {
-        background-color: transparent;
-        @include font-18;
-        color: rgba($color: $white, $alpha: .70);
-        @include sm {
-            font-size: 14px;
         }
     }
 }

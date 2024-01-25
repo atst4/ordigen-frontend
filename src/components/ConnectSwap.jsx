@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
@@ -79,12 +78,12 @@ const ConnectSwap = () => {
         setTokenActive(item);
     };
 
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const handleCloseTwo = () => setShowTwo(false);
     const handleShowTwo = () => setShowTwo(true);
+
 
     return (
         <>
@@ -154,7 +153,7 @@ const ConnectSwap = () => {
                 <Modal.Header closeButton>
                     <Modal.Title>Select Token</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body className='pt-2'>
                     <ul className="items-token d-grid gap-2 gap-sm-3">
                         <li><input type="text" className="form-control" placeholder='Search name or paste address' /></li>
                         {tokenItem.map((item, index) => (

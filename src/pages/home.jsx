@@ -1,3 +1,6 @@
+
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 import Banner from '../components/Banner'
 import Brands from '../components/Brands'
 import Connect from '../components/Connect'
@@ -9,6 +12,7 @@ import FAQ from '../components/FAQ'
 const Home = () =>{
     return (
         <>
+            <Header />
             <Banner />
             <Brands />
             <Connect />
@@ -16,6 +20,7 @@ const Home = () =>{
             <Services />
             <RoadMap />
             <FAQ />
+            <Footer />
         </>
     )
 }

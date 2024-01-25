@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Logo from '../assets/img/logo.svg'
+import { Link } from 'react-router-dom';
 
 export default class Footer extends Component {
   render() {
@@ -47,7 +48,7 @@ export default class Footer extends Component {
           <Row>
             <Col xs={12}>
               <div className="footer-inner d-flex align-items-center flex-wrap justify-content-center justify-content-lg-between">
-                <a href="/"><img src={Logo} alt="" /></a>
+                <Link to="/"><img src={Logo} alt="" /></Link>
                 <ul className="social-link d-flex align-items-center justify-content-center justify-content-md-end gap-3 mt-3 mt-md-4 mt-lg-0 flex-wrap flex-md-nowrap">
                   <li><a className='not-icon'>ordigen@proton.me</a></li>
                   {social.map((item, index) => (

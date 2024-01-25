@@ -232,13 +232,72 @@
                     grid-template-columns: repeat(var(--grid-count), minmax(0, 1fr));
                     & li {
                         border-radius: 10px;
-                        padding: 9px 14px;
+                        padding: 13px 14px;
                         font-size: 17px;
                         line-height: calc(20px/17px);
                         color: $white;
-                        border: 1px solid rgba($color: $secondary, $alpha: .4);
                         cursor: pointer;
-                        background: linear-gradient(90deg, rgba(238, 44, 27, 0.25) 0.01%, rgba(243, 110, 35, 0.25) 99.99%);
+                        border: 1px solid rgba(238, 44, 27, 0.10);
+                        background: linear-gradient(90deg, rgba(238, 44, 27, 0.05) 0.01%, rgba(243, 110, 35, 0.05) 99.99%);
+                        &:hover {
+                            border: 1px solid rgba($color: $secondary, $alpha: .4);
+                            background: linear-gradient(90deg, rgba(238, 44, 27, 0.25) 0.01%, rgba(243, 110, 35, 0.25) 99.99%);
+                        }
+                        @include sm {
+                            padding: 10px 14px;
+                            font-size: 14px;
+                        }
+                        & img {
+                            --width: 30px;
+                            width: var(--width);
+                            height: var(--width);
+                            object-fit: contain;
+                        }
+                    }
+                    &-token {
+                        max-height: 400px;
+                        overflow: auto;
+                        padding-right: 10px;
+                        & input {
+                            border-radius: 10px;
+                            border: 1px solid rgba(238, 44, 27, 0.10);
+                            background: linear-gradient(90deg, rgba(238, 44, 27, 0.05) 0.01%, rgba(243, 110, 35, 0.05) 99.99%);
+                            color: $white;
+                            font-size: 14px;
+                            line-height: calc(22px/14px);
+                            font-weight: 300;
+                            padding: 10px 16px;
+                            box-shadow: 0 0 0;
+                            margin-bottom: 28px;
+                            position: sticky;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            &::placeholder {
+                                color: $white;
+                            }
+                            @include sm {
+                                margin-bottom: 20px;
+                            }
+                        }
+                        & li {
+                            cursor: pointer;
+                            @include transition;
+                            &:hover {
+                                color: $secondary;
+                            }
+                            &:not(:first-child) {
+                                border-bottom: 1px solid rgba($color: $white, $alpha: .06);
+                                padding-bottom: 12px;
+                                margin-bottom: 12px;
+                            }
+                            & img {
+                                --width: 25px;
+                                width: var(--width);
+                                height: var(--width);
+                                object-fit: contain;
+                            }
+                        }
                     }
                 }
             }
