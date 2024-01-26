@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider,} from "react-router-dom";
 import Home from './pages/home.jsx';
 import Dashboard from './pages/dashboard.jsx';
 import ErrorElement from './pages/ErrorElement.jsx';
+import ConnectWallet from './pages/ConnectWallet.jsx';
+import { Swap } from './pages/Swap.jsx';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,16 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+    errorElement: <ErrorElement />
+  },
+  {
+    path: "/wallet",
+    element: <ConnectWallet />,
+    errorElement: <ErrorElement />
+  },
+  {
+    path: "/swap",
+    element: <Swap />,
     errorElement: <ErrorElement />
   },
 ]);

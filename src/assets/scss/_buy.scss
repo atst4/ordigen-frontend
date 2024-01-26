@@ -140,7 +140,7 @@
             left: 50%;
             top: 50%;
             transform: translate( -50%, -50%);
-            margin-top: -32px;
+            margin-top: -36px;
             background: #2D2027;
             @include ssm {
                 top: 52%;
@@ -151,6 +151,10 @@
             padding: 11px 21px !important;
         }
         &-btn {
+            margin-top: 20px;
+            @include sm {
+                margin-top: 1rem;
+            }
             & .primary-btn {
                 cursor: auto;
                 width: 100%;
@@ -163,6 +167,9 @@
                 @include ssm {
                     padding: 14px 24px;
                 }
+            }
+            & a {
+                cursor: pointer !important;
             }
         }
     }

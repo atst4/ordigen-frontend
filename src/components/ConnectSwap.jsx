@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
@@ -11,6 +11,7 @@ import icon_6 from '../assets/img/icon/6.svg'
 import icon_7 from '../assets/img/icon/7.svg'
 import icon_8 from '../assets/img/icon/8.svg'
 import icon_9 from '../assets/img/icon/9.svg'
+import { Link, useLocation } from 'react-router-dom';
 
 
 
@@ -84,6 +85,22 @@ const ConnectSwap = () => {
     const handleCloseTwo = () => setShowTwo(false);
     const handleShowTwo = () => setShowTwo(true);
 
+    const [connectText, setConnectText] = useState('Connect Wallet');
+    const [isConnect, setIsConnect] = useState(false);
+    const [href, setHref] = useState('');
+    const currentLocation = useLocation().pathname;
+
+    useEffect(() => {
+        if(currentLocation === '/dashboard'){
+            setIsConnect(true);
+            setHref('/wallet');
+        } else if(currentLocation === '/wallet'){
+            setIsConnect(true);
+            setHref('/swap');
+            setConnectText('Searching Prices')
+        }
+    },[currentLocation])
+
 
     return (
         <>
@@ -130,7 +147,7 @@ const ConnectSwap = () => {
                     <p className="p2">0x54B2...8F732c</p>
                 </div>
                 <div className="buy-connect-btn">
-                    <button className="primary-btn">Connect Wallet</button>
+                    {isConnect ? (<Link className="primary-btn" to={href}>{connectText}</Link>) : (<button className="primary-btn">{connectText}</button>)}
                 </div>
             </div>
             <Modal className='buy-modal' centered size='md' show={show} onHide={handleClose}>

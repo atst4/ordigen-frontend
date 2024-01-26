@@ -46,7 +46,7 @@ const Header = () => {
   const [btn, setBtn] = useState(false);
   const [btnText, setBtnText] = useState('');
   const location = useLocation();
-  
+
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -61,18 +61,25 @@ const Header = () => {
     };
 
   }, []);
+  const [headerLink, setHeaderLink] = useState();
 
-  
-  
-  useEffect(()=> {
-    if(location.pathname == '/dashboard'){
+  useEffect(() => {
+    if (location.pathname == '/dashboard') {
       setBtn(true);
       setBtnText('Connect Wallet');
-    } else{
+    } else if (location.pathname === '/wallet' || location.pathname === '/swap') {
+      setBtn(true);
       setBtnText('0x54B2...8F73')
+    } else {
+      setBtn(false);
+      setBtnText('')
     }
-  },[]);
-  console.log(btn,btnText);
+    if(location.pathname === '/dashboard'){
+      setHeaderLink('/wallet')
+    } else if(location.pathname === '/wallet'){
+      setHeaderLink('/swap')
+    }
+  }, [location]);
 
   return (
     <header className={`heading start-0 top-0 w-100 z-3 ${scrolled ? 'position-fixed pt-3' : 'position-absolute'}`}>
@@ -92,7 +99,16 @@ const Header = () => {
                     </Nav.Item>
                   ))}
                 </Nav>
-                {btn ? ( <Link className='primary-btn mt-3 mt-md-0 ms-lg-4 d-inline-block'>{btnText}</Link> ) : <Link className='heading-link mt-3 mt-md-0 ms-lg-4 fw-normal' to="/dashboard">Dashboard</Link>}
+                {btn ? (<Link className={`mt-3 mt-md-0 ms-lg-4 d-inline-block ${location.pathname == '/dashboard' ? 'primary-btn' : 'primary-btn-light'}`} to={headerLink}>
+                  <span>{location.pathname === '/wallet' || location.pathname === '/swap' ? (<svg width="13" height="22" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.44557 0.5L6.30469 0.978556V14.8639L6.44557 15.0045L12.8909 11.1946L6.44557 0.5Z" fill="#343434" />
+                  <path d="M6.44546 0.5L0 11.1946L6.44546 15.0045V8.2649V0.5Z" fill="#8C8C8C" />
+                  <path d="M6.44464 16.2251L6.36523 16.322V21.2681L6.44464 21.4999L12.8939 12.4172L6.44464 16.2251Z" fill="#3C3C3B" />
+                  <path d="M6.44546 21.4999V16.2251L0 12.4172L6.44546 21.4999Z" fill="#8C8C8C" />
+                  <path d="M6.44727 15.004L12.8926 11.1941L6.44727 8.2644V15.004Z" fill="#141414" />
+                  <path d="M0 11.1941L6.44546 15.004V8.2644L0 11.1941Z" fill="#393939" />
+                  </svg>) : ''} {btnText}</span></Link>) : <Link className='heading-link mt-3 mt-md-0 ms-lg-4 fw-normal' to="/dashboard">Dashboard</Link>
+                }
               </Navbar.Collapse>
             </Navbar>
           </Col>

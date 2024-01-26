@@ -1,0 +1,81 @@
+.search {
+    font-family: "PP Gosha Sans";
+    padding-top: 250px;
+    padding-bottom: 112px;
+    & .buy-connect {
+        @include mds {
+            margin-top: 0;
+        }
+    }
+    &-card {
+        border-radius: 16px;
+        border: 1px solid rgba(238, 44, 27, 0.10);
+        background: #1B1820;
+        padding: 24px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-gap: 15px;
+        @include xxl {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        @include mds {
+            padding: 15px;
+        }
+        &-single {
+            cursor: pointer;
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(238, 44, 27, 0.10);
+            background: linear-gradient(90deg, rgba(238, 44, 27, 0.05) 0.01%, rgba(243, 110, 35, 0.05) 99.99%);
+            transition: 0.4s ease-in-out;
+            &:hover {
+                border: 1px solid var(--Linear, $primary);
+                background: linear-gradient(90deg, rgba(238, 44, 27, 0.25) 0.01%, rgba(243, 110, 35, 0.25) 99.99%);
+            }
+            & span:not(h6 span) {
+                color: var(--Paragraph, rgba(241, 241, 247, 0.60));
+                font-size: 14px;
+                font-style: normal;
+                line-height: calc(19px / 14px);
+            }
+            & h4 {
+                & span {
+                    color: $white;
+                    @include font-18;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+    &-area {
+        border-radius: 16px;
+        border: 1px solid rgba(238, 44, 27, 0.10);
+        background: linear-gradient(90deg, rgba(238, 44, 27, 0.05) 0.01%, rgba(243, 110, 35, 0.05) 99.99%);
+        backdrop-filter: blur(12px);
+        min-height: 300px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &-icon {
+            margin-bottom: 40px;
+            & svg {
+                margin: 0 auto;
+                @include md {
+                    width: 70px;
+                }
+            }
+            @include md {
+                margin-bottom: 0;
+            }
+        }
+        & h4 {
+            color: $white;
+            font-size: 25px;
+            font-weight: 400;
+            line-height: normal;
+            @include md {
+                font-size: 20px;
+            }
+        }
+    }
+}
