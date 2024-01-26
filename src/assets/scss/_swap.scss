@@ -206,14 +206,20 @@
                 background-size: cover;
                 background-position: top center;
             }
+            &-header {
+                padding: 24px 42px;
+                @include sm {
+                    padding: 1rem 26px;
+                }
+            }
         }
         & .content {
-            min-height: 374px;
+            min-height: 354px;
             @include mds {
-                min-height: 300px;
+                min-height: 280px;
             }
             @include sm {
-                min-height: 200px;
+                min-height: 180px;
             }
             @include ssm {
                 min-height: max-content;
