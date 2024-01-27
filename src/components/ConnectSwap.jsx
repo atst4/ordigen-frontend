@@ -117,7 +117,8 @@ const ConnectSwap = () => {
                 <div className="buy-connect-single d-flex justify-content-between">
                     <div className="buy-connect-single-left">
                         <p>Spend Amount</p>
-                        <span className="d-block">0.0</span>
+                        {/* <span className="d-block">0.0</span> */}
+                        <input type="text" className='d-block bg-transparent border-0 p-0' value="2E" />
                     </div>
                     <div className="buy-connect-single-right">
                         <Button onClick={handleShow} className='buy-exchange'>

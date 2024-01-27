@@ -107,10 +107,11 @@
                     @include font-16;
                     margin-bottom: 24px;
                 }
-                & span {
+                & input {
                     font-size: 32px;
                     line-height: calc(32px/32px);
                     color: #F1F1F7;
+                    width: 110px;
                 }
                 & .second-span {
                     @include font-22;
