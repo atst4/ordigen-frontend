@@ -68,7 +68,7 @@ const Header = () => {
   useEffect(() => {
     if (location.pathname == '/dashboard') {
       setBtn(true);
-      setBtnText('Connect Wallet');
+      setBtnText('Connect ETH Wallet');
     } else if (location.pathname === '/wallet' || location.pathname === '/swap') {
       setBtn(true);
       setBtnText('0x54B2...8F73')
@@ -119,7 +119,7 @@ const Header = () => {
                     ))}
                   </Nav>
                   <div className="d-flex justify-content-center align-items-center flex-wrap gap-2 mt-3 mt-lg-0 ms-lg-4 ">
-                    {btn ? (<Link className={`d-inline-block ${location.pathname == '/dashboard' ? 'primary-btn' : 'primary-btn-light'}`} to={headerLink}>
+                    {btn ? (<Link className={`d-inline-block border-0 ${location.pathname == '/dashboard' ? 'primary-btn' : 'primary-btn-light '}`} to={headerLink}>
                       <span>{location.pathname === '/wallet' || location.pathname === '/swap' ? (<svg width="13" height="22" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6.44557 0.5L6.30469 0.978556V14.8639L6.44557 15.0045L12.8909 11.1946L6.44557 0.5Z" fill="#343434" />
                         <path d="M6.44546 0.5L0 11.1946L6.44546 15.0045V8.2649V0.5Z" fill="#8C8C8C" />
@@ -130,7 +130,6 @@ const Header = () => {
                       </svg>) : ''} {btnText}</span></Link>) : <Link className='heading-link mt-3 mt-md-0 ms-lg-4 fw-normal' to="/dashboard">Dashboard</Link>
                     }
                     {location.pathname !='/' ? (<Button onClick={handleShow} className='d-inline-block primary-btn border-0'>Connect BTC Wallet</Button>) : ''}
-                    {/* <Button onClick={handleShow} className='d-inline-block primary-btn border-0'>Connect BTC Wallet</Button> */}
                   </div>
                 </Navbar.Collapse>
               </Navbar>
