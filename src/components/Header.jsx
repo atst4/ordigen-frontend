@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Container, Row, Col, Navbar, Nav } from 'react-bootstrap';
+import { Container, Row, Col, Navbar, Nav, Button } from 'react-bootstrap';
 import Logo from '../assets/img/logo.svg'
 import { Link, useLocation } from 'react-router-dom';
-
-
+import Modal from 'react-bootstrap/Modal';
+import icon_1 from '../assets/img/wallets/1.png';
+import icon_2 from '../assets/img/wallets/2.png'
+  ;
 const Header = () => {
   const social = [
     {
@@ -74,47 +76,84 @@ const Header = () => {
       setBtn(false);
       setBtnText('')
     }
-    if(location.pathname === '/dashboard'){
+    if (location.pathname === '/dashboard') {
       setHeaderLink('/wallet')
-    } else if(location.pathname === '/wallet'){
+    } else if (location.pathname === '/wallet') {
       setHeaderLink('/swap')
     }
   }, [location]);
 
+  const [show, setShow] = useState(false);
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+  const handleClick = () => setShow(false);
+
+  const walletItem = [
+    {
+      icon: icon_1,
+      title: 'MetaMask',
+    },
+    {
+      icon: icon_2,
+      title: 'WalletConnect',
+    },
+  ]
+
   return (
-    <header className={`heading start-0 top-0 w-100 z-3 ${scrolled ? 'position-fixed pt-3' : 'position-absolute'}`}>
-      <Container>
-        <Row>
-          <Col>
-            <Navbar expand="lg" bg='light' className="heading-inner">
-              <Link className="navbar-brand p-0" to="/">
-                <img src={Logo} alt="site-logo" />
-              </Link>
-              <Navbar.Toggle aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse className='mt-3 mt-lg-0' id="navbarText">
-                <Nav className="ms-auto social-link gap-3">
-                  {social.map((item, index) => (
-                    <Nav.Item key={index}>
-                      <Nav.Link className="nav-link text-white d-flex align-items-center justify-content-center rounded-pill" href={item.link} target='_blank' dangerouslySetInnerHTML={{ __html: item.icon }}></Nav.Link>
-                    </Nav.Item>
-                  ))}
-                </Nav>
-                {btn ? (<Link className={`mt-3 mt-md-0 ms-lg-4 d-inline-block ${location.pathname == '/dashboard' ? 'primary-btn' : 'primary-btn-light'}`} to={headerLink}>
-                  <span>{location.pathname === '/wallet' || location.pathname === '/swap' ? (<svg width="13" height="22" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6.44557 0.5L6.30469 0.978556V14.8639L6.44557 15.0045L12.8909 11.1946L6.44557 0.5Z" fill="#343434" />
-                  <path d="M6.44546 0.5L0 11.1946L6.44546 15.0045V8.2649V0.5Z" fill="#8C8C8C" />
-                  <path d="M6.44464 16.2251L6.36523 16.322V21.2681L6.44464 21.4999L12.8939 12.4172L6.44464 16.2251Z" fill="#3C3C3B" />
-                  <path d="M6.44546 21.4999V16.2251L0 12.4172L6.44546 21.4999Z" fill="#8C8C8C" />
-                  <path d="M6.44727 15.004L12.8926 11.1941L6.44727 8.2644V15.004Z" fill="#141414" />
-                  <path d="M0 11.1941L6.44546 15.004V8.2644L0 11.1941Z" fill="#393939" />
-                  </svg>) : ''} {btnText}</span></Link>) : <Link className='heading-link mt-3 mt-md-0 ms-lg-4 fw-normal' to="/dashboard">Dashboard</Link>
-                }
-              </Navbar.Collapse>
-            </Navbar>
-          </Col>
-        </Row>
-      </Container>
-    </header>
+    <>
+      <header className={`heading start-0 top-0 w-100 z-3 ${scrolled ? 'position-fixed pt-3' : 'position-absolute'}`}>
+        <Container>
+          <Row>
+            <Col>
+              <Navbar expand="lg" bg='light' className="heading-inner">
+                <Link className="navbar-brand p-0" to="/">
+                  <img src={Logo} alt="site-logo" />
+                </Link>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse className='mt-3 mt-lg-0' id="navbarText">
+                  <Nav className="ms-auto social-link gap-3">
+                    {social.map((item, index) => (
+                      <Nav.Item key={index}>
+                        <Nav.Link className="nav-link text-white d-flex align-items-center justify-content-center rounded-pill" href={item.link} target='_blank' dangerouslySetInnerHTML={{ __html: item.icon }}></Nav.Link>
+                      </Nav.Item>
+                    ))}
+                  </Nav>
+                  <div className="d-flex justify-content-center align-items-center flex-wrap gap-2 mt-3 mt-lg-0 ms-lg-4 ">
+                    {btn ? (<Link className={`d-inline-block ${location.pathname == '/dashboard' ? 'primary-btn' : 'primary-btn-light'}`} to={headerLink}>
+                      <span>{location.pathname === '/wallet' || location.pathname === '/swap' ? (<svg width="13" height="22" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.44557 0.5L6.30469 0.978556V14.8639L6.44557 15.0045L12.8909 11.1946L6.44557 0.5Z" fill="#343434" />
+                        <path d="M6.44546 0.5L0 11.1946L6.44546 15.0045V8.2649V0.5Z" fill="#8C8C8C" />
+                        <path d="M6.44464 16.2251L6.36523 16.322V21.2681L6.44464 21.4999L12.8939 12.4172L6.44464 16.2251Z" fill="#3C3C3B" />
+                        <path d="M6.44546 21.4999V16.2251L0 12.4172L6.44546 21.4999Z" fill="#8C8C8C" />
+                        <path d="M6.44727 15.004L12.8926 11.1941L6.44727 8.2644V15.004Z" fill="#141414" />
+                        <path d="M0 11.1941L6.44546 15.004V8.2644L0 11.1941Z" fill="#393939" />
+                      </svg>) : ''} {btnText}</span></Link>) : <Link className='heading-link mt-3 mt-md-0 ms-lg-4 fw-normal' to="/dashboard">Dashboard</Link>
+                    }
+                    {location.pathname !='/' ? (<Button onClick={handleShow} className='d-inline-block primary-btn border-0'>Connect BTC Wallet</Button>) : ''}
+                    {/* <Button onClick={handleShow} className='d-inline-block primary-btn border-0'>Connect BTC Wallet</Button> */}
+                  </div>
+                </Navbar.Collapse>
+              </Navbar>
+            </Col>
+          </Row>
+        </Container>
+      </header>
+      <Modal className='wallet-modal' centered size='md' show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Connect Wallet</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <ul className="items d-grid gap-2 gap-sm-3">
+            {walletItem.map((item, index) => (
+              <li className="d-flex align-items-center gap-2" key={index} onClick={() => handleClick()}>
+                <img src={item.icon} alt="" />
+                <span>{item.title}</span>
+              </li>
+            ))}
+          </ul>
+        </Modal.Body>
+      </Modal>
+    </>
 
   )
 

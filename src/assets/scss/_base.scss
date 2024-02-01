@@ -76,15 +76,29 @@ input[type=number] {
 }
 
 .primary-btn {
-    padding: 16px 40px;
+    --padding-y: 16px;
+    --padding-x: 40px;
+    padding: var(--padding-y) var(--padding-x);
     background: $secondary;
     background: $btn-bg;
     border-radius: 10px;
     color: $white;
     @include font-20;
     font-family: "PP Gosha Sans", sans-serif;
+    @include transition;
     &:hover {
         --size: 0%;
+    }
+    .heading & {
+        --padding-y: 17px;
+        @include lgs {
+            --padding-y: 9px;
+            --padding-x: 12px;
+        }
+        @include md {
+            --padding-y: 14px;
+            --padding-x: 24px;
+        }
     }
     &-light {
         border-radius: 10px;

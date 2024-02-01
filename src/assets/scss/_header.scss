@@ -80,6 +80,54 @@
     }
 }
 
+.wallet {
+    &-modal {
+        --bs-modal-width: 520px;
+        background: rgba(217, 217, 217, 0.01);
+        backdrop-filter: blur(110px);
+        .modal {
+            &-body {
+                padding: 40px 30px;
+                padding-top: 4px;
+            }
+            &-header {
+                padding: 24px 30px;
+            }
+        }
+        & .items {
+            --grid-count: 2;
+            grid-template-columns: repeat(var(--grid-count), minmax(0, 1fr));
+            @include ssm {
+                --grid-count: 1;
+            }
+            & li {
+                border-radius: 10px;
+                padding: 13px 14px;
+                font-size: 17px;
+                line-height: calc(20px/17px);
+                color: $white;
+                cursor: pointer;
+                border: 1px solid rgba(238, 44, 27, 0.10);
+                background: linear-gradient(90deg, rgba(238, 44, 27, 0.05) 0.01%, rgba(243, 110, 35, 0.05) 99.99%);
+                &:hover {
+                    border: 1px solid rgba($color: $secondary, $alpha: .4);
+                    background: linear-gradient(90deg, rgba(238, 44, 27, 0.25) 0.01%, rgba(243, 110, 35, 0.25) 99.99%);
+                }
+                @include sm {
+                    padding: 10px 14px;
+                    font-size: 14px;
+                }
+                & img {
+                    --width: 30px;
+                    width: var(--width);
+                    height: var(--width);
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+}
+
 
 /* Header CSS */
 
