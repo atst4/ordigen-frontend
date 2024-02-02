@@ -196,43 +196,169 @@
         }
     }
     &-modal {
-        --bs-modal-width: 774px;
+        background: rgba(217, 217, 217, 0.01);
+        backdrop-filter: blur(110px);
+        --bs-modal-padding: 32px;
+        @include lg {
+            --bs-modal-padding: 22px;
+        }
         @include md {
-            --bs-modal-width: calc(100% - 60px);
+            --bs-modal-padding: 1rem;
         }
         & .modal {
-            &-content {
-                background-image: url(../img/modal-bg.svg);
-                background-size: cover;
-                background-position: top center;
+            &-dialog {
+                --bs-modal-width: 1345px;
+                @media only screen and (max-width: 1345px) {
+                    --bs-modal-width: calc(100% - 40px);
+                }
             }
+            // &-content {
+            //     background-image: url(../img/modal-bg.svg);
+            //     background-size: cover;
+            //     background-position: top center;
+            // }
             &-header {
-                padding: 24px 42px;
-                @include sm {
-                    padding: 1rem 26px;
+                // padding: 24px 42px;
+                // @include sm {
+                //     padding: 1rem 26px;
+                // }
+                position: absolute;
+                top: 40px;
+                right: 40px;
+                z-index: 3;
+                padding: 0;
+            }
+        }
+        & .content {
+            // min-height: 354px;
+            // @include mds {
+            //     min-height: 280px;
+            // }
+            // @include sm {
+            //     min-height: 180px;
+            // }
+            // @include ssm {
+            //     min-height: max-content;
+            // }
+            & svg {
+                margin-bottom: 6px;
+            }
+            & h3 {
+                @include font-32;
+                margin-bottom: 40px;
+                @include md {
+                    margin-bottom: 24px;
+                }
+                @include ssm {
+                    margin-bottom: 20px;
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+    &-progress {
+        padding: 32px;
+        border-radius: 1rem;
+        background-color: #0D1014;
+        @include lg {
+            padding: 22px;
+        }
+        @include md {
+            padding: 1rem;
+        }
+        &-wrap {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            @include sm {
+                width: max-content;
+            }
+        }
+        &-item {
+            position: relative;
+            z-index: 1;
+            @include sm {
+                padding: 0 20px;
+                flex: 0 0 auto;
+            }
+            &::before,
+            &::after {
+                content: "";
+                width: 20%;
+                height: 2px;
+                background-color: rgba($color: $white, $alpha: .20);
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+                margin-top: -20px;
+                @include mds {
+                    margin-top: -27px;
+                }
+            }
+            &::after {
+                left: auto;
+                right: 0;
+            }
+            &:first-child {
+                &::before {
+                    display: none;
+                }
+            }
+            &:last-child {
+                &::after {
+                    display: none;
+                }
+            }
+            &.progress-passed {
+                &::before,
+                &::after {
+                    background-color: #FE7024;
+                }
+                & .icon {
+                    background-color: rgba($color: #FE7024, $alpha: .25);
+                    border-color: rgba($color: #FE7024, $alpha: .25);
+                }
+                & p {
+                    color: #FE7024;
+                }
+            }
+            & .icon {
+                --width: 72px;
+                width: var(--width);
+                height: var(--width);
+                border: 1px solid rgba($color: $white, $alpha: .25);
+                color: rgba($color: $white, $alpha: .50);
+                margin-bottom: 14px;
+                @include md {
+                    --width: 50px;
+                }
+                & svg {
+                    --width: 32px;
+                    width: var(--width);
+                    height: var(--width);
+                    @include md {
+                        --width: 24px;
+                    }
+                }
+            }
+            & p {
+                font-size: 18px;
+                color: rgba($color: $white, $alpha: .50);
+                font-weight: 500;
+                @include lg {
+                    font-size: 14px;
                 }
             }
         }
         & .content {
-            min-height: 354px;
-            @include mds {
-                min-height: 280px;
+            & .progress {
+                margin-bottom: 12px;
             }
-            @include sm {
-                min-height: 180px;
-            }
-            @include ssm {
-                min-height: max-content;
-            }
-            & h3 {
-                margin-top: 20px;
-                @include font-32;
-                @include sm {
-                    margin-top: 1rem;
-                }
-                @include ssm {
-                    font-size: 24px;
-                    margin-top: .5rem;
+            & p {
+                font-size: 14px;
+                display: flex;
+                gap: 12px;
+                & span {
+                    opacity: .65;
                 }
             }
         }

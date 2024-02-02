@@ -299,6 +299,7 @@
         border: none;
         & .btn-close {
             filter: brightness(0) invert(1);
+            opacity: 1;
         }
     }
     &-title {
