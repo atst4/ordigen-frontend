@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
-import Logo from '../assets/img/logo.svg';
 import icon_1 from '../assets/img/icon/1.svg'
 import icon_2 from '../assets/img/icon/2.svg'
 import icon_3 from '../assets/img/icon/3.svg'
