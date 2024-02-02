@@ -118,7 +118,7 @@ const Header = () => {
                       </Nav.Item>
                     ))}
                   </Nav>
-                  <button className="heading-link mt-3 mt-md-0 ms-lg-4 fw-normal border-0">Dashboard</button>
+                  <button className="heading-link mt-3 mt-md-0 ms-lg-4 fw-normal border-0 bg-transparent">Dashboard</button>
                   {/* 
                   <div className="d-flex justify-content-center align-items-center flex-wrap gap-2 mt-3 mt-lg-0 ms-lg-4 ">
                     {btn ? (<Link className={`d-inline-block border-0 ${location.pathname == '/dashboard' ? 'primary-btn' : 'primary-btn-light '}`} to={headerLink}>
@@ -133,7 +133,7 @@ const Header = () => {
                     }
                     {location.pathname !='/' ? (<Button onClick={handleShow} className='d-inline-block primary-btn border-0'>Connect BTC Wallet</Button>) : ''}
                   </div>
-                  */} 
+                  */}
                 </Navbar.Collapse>
               </Navbar>
             </Col>
