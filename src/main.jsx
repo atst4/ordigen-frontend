@@ -9,6 +9,9 @@ import ErrorElement from './pages/ErrorElement.jsx';
 import ConnectWallet from './pages/ConnectWallet.jsx';
 import { Swap } from './pages/Swap.jsx';
 
+
+
+//add router configuration comment
 const router = createBrowserRouter([
   {
     path: "/",
